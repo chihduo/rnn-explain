@@ -10,7 +10,7 @@ import pandas as pd
 from datetime import datetime
 from sklearn.metrics import confusion_matrix
 
-def save_model(model,accuracy):
+def save_model(model, accuracy):
   # Get the current date and time
   current_datetime = datetime.now().strftime("%Y%m%d_%H%M%S")
   accuracy = "{:.3f}".format(accuracy).replace('.', '')
@@ -38,8 +38,8 @@ def check_swing_trade(seq):
 def create_test_examples(num_examples, num_columns, labeler):
   def generate_random_lists():
     list_of_lists = []
-    for _ in range(1,num_examples):
-      list_size = random.randint(4, num_columns)
+    list_size = num_columns #random.randint(4, num_columns)
+    for _ in range(1, num_examples):
       seq = list()
       for _ in range(num_columns - list_size):
         seq.append(0)
