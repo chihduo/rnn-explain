@@ -7,10 +7,7 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import seaborn as sns
-import tensorflow as tf
 from datetime import datetime
-from keras.models import load_model
 from sklearn.metrics import confusion_matrix
 
 def save_model(model,accuracy):
@@ -38,13 +35,13 @@ def check_swing_trade(seq):
         last_peak = prev2
     return lt(last_peak, seq[-1])
 
-def create_test_examples(num_examples, labeler):
+def create_test_examples(num_examples, num_columns, labeler):
   def generate_random_lists():
     list_of_lists = []
     for _ in range(1,num_examples):
-      list_size = random.randint(4, NUM_COLUMNS)
+      list_size = random.randint(4, num_columns)
       seq = list()
-      for _ in range(NUM_COLUMNS - list_size):
+      for _ in range(num_columns - list_size):
         seq.append(0)
       for _ in range(list_size):
         seq.append(random.randint(-6, 6) * 0.5)
