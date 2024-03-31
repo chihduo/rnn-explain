@@ -45,7 +45,7 @@ def create_test_examples(num_examples, num_columns, labeler):
         seq.append(0)
       for _ in range(list_size):
         seq.append(random.randint(-6, 6) * 0.5)
-        seq.append(1 if labeler(seq) else 0)
+      seq.append(1 if labeler(seq) else 0)
       list_of_lists.append(seq)
     return list_of_lists
 
