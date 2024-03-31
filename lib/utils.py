@@ -98,4 +98,4 @@ def compute_accuracy(models, test_data_x, test_data_y):
   print("Accuracy:", accuracy)
   print("Confusion Matrix:")
   print(conf_matrix)
-  return accuracy
+  return accuracy,result
